@@ -1,0 +1,15 @@
+FROM ubuntu
+# Автор - Лещинский Роман Алексеевич студент МосПолитеха 221-329
+ENV TZ=Europe/Moscow
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt-get update
+RUN apt-get install qt6-base-dev qt6-base-dev-tools -y
+RUN apt-get install build-essential git -y
+
+WORKDIR /221-329_Leshchinskii_Roman
+COPY . /221-329_Leshchinskii_Roman
+RUN qmake6 
+RUN make
+
+ENTRYPOINT ["./echoServer"]
