@@ -315,6 +315,7 @@ Makefile: ../main_funcs/echoServer.pro ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/
 		../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/qt_config.prf \
 		../../../../PO/Qt/6.4.2/mingw_64/mkspecs/win32-g++/qmake.conf \
 		../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/exclusive_builds.prf \
 		../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/toolchain.prf \
 		../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/default_pre.prf \
@@ -339,8 +340,8 @@ Makefile: ../main_funcs/echoServer.pro ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/
 		../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/lex.prf \
 		../main_funcs/echoServer.pro \
 		../../../../PO/Qt/6.4.2/mingw_64/lib/Qt6Network.prl \
+		../../../../PO/Qt/6.4.2/mingw_64/lib/Qt6Sql.prl \
 		../../../../PO/Qt/6.4.2/mingw_64/lib/Qt6Core.prl \
-		.qmake.stash \
 		../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\main_funcs\echoServer.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/spec_pre.prf:
@@ -588,6 +589,7 @@ Makefile: ../main_funcs/echoServer.pro ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/
 ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/qt_config.prf:
 ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/win32-g++/qmake.conf:
 ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/exclusive_builds.prf:
 ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/toolchain.prf:
 ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/default_pre.prf:
@@ -612,8 +614,8 @@ Makefile: ../main_funcs/echoServer.pro ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/
 ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/lex.prf:
 ../main_funcs/echoServer.pro:
 ../../../../PO/Qt/6.4.2/mingw_64/lib/Qt6Network.prl:
+../../../../PO/Qt/6.4.2/mingw_64/lib/Qt6Sql.prl:
 ../../../../PO/Qt/6.4.2/mingw_64/lib/Qt6Core.prl:
-.qmake.stash:
 ../../../../PO/Qt/6.4.2/mingw_64/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\main_funcs\echoServer.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

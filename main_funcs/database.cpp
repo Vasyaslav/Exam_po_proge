@@ -6,13 +6,12 @@ Database::Database(){
     this->create_db();
 }
 
-Database::create_db(){
+void Database::create_db(){
     QSqlQuery query(this->db);
 
     query.exec("Create table clients("
-               "id integer PRIMARY KEY,"
-               "client_name varchar(64) not null"
-               "wins integer default 0"
+               "client_name varchar(64) not null primary key, "
+               "wins integer default 0, "
                "loses integer default 0)");
 }
 
@@ -20,7 +19,13 @@ Database::~Database(){
     db.close();
 }
 
-Database::db_req (QString req){
+void Database::db_req (QString req){
     QSqlQuery query(this->db);
     query.exec(req);
+}
+
+Database* Database::get_instance(){
+    if (!p_instance)
+        p_instance = new Database();
+    return p_instance;
 }

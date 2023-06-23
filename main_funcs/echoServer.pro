@@ -1,6 +1,7 @@
 QT -= gui
 
 QT += network #Для работы с сетью
+QT += sql #Для работы с Базой данных
 
 
 CONFIG += c++11 console
@@ -31,4 +32,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     database.h \
     ex_funcs.h \
-    mytcpserver_ex.h
+    mytcpserver_ex.h \
+    singl.h

@@ -7,8 +7,9 @@
 #include <QString>
 #include <QMap>
 #include <QTcpSocket>
+#include <QList>
 
-QVector<QMap<QString, Qstring>> logins;
+QVector<QString> logins;
 QString move0;
 QString move1;
 QString move2;

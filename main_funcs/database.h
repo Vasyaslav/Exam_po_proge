@@ -6,13 +6,17 @@
 #include <QSqlRecord>
 #include <QString>
 #include <QVector>
+#include "singl.h"
 
 
-class Database
+class Database : public Singleton<Database>
 {
+    friend class Singleton<Database>;
 private:
-    QSqlDatabase db;
     Database();
+    Database(const Database&) = delete;
+    Database& operator = (Database&) = delete;
+    QSqlDatabase db;
     ~Database();
 
     void create_db();

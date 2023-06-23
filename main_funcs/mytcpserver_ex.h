@@ -9,9 +9,13 @@
 #include <QDebug>
 #include <QCoreApplication>
 #include <QStringList>
+#include <QByteArray>
+#include <Qvector>
+#include "singl.h"
 
-class MyTcpServer : public QObject
+class MyTcpServer : public QObject, public Singleton<MyTcpServer>
 {
+    friend class Singleton<MyTcpServer>;
     Q_OBJECT
 public:
     explicit MyTcpServer(QObject *parent = nullptr);
@@ -22,10 +26,13 @@ public:
 public slots:
     void slotNewConnection();
     void slotClientDisconnected();
+    void los_win_m(int winner);
 
     void slotServerRead();
     //void slotReadClient();
 private:
+    MyTcpServer(const MyTcpServer&) = delete;
+    MyTcpServer& operator = (MyTcpServer&) = delete;
     QTcpServer * mTcpServer;
     int server_status;
 };

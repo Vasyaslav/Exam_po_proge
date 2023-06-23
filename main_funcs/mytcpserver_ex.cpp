@@ -23,7 +23,7 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
 void MyTcpServer::slotNewConnection(){
     QTcpSocket* socket = mTcpServer->nextPendingConnection();
     if(server_status==1){
-        socket->write("Сервер запущен и ждёт команд!\r\n");
+        socket->write("connected\r\n");
         connect(socket, &QTcpSocket::readyRead,
                 this,&MyTcpServer::slotServerRead);
         connect(socket,&QTcpSocket::disconnected,
@@ -33,7 +33,7 @@ void MyTcpServer::slotNewConnection(){
 }
 
 int MyTcpServer::five_logins(){
-    if (mTcpSocket.size() = 5){
+    if (mTcpSocket.size() == 5){
         for (int i = 0; i << mTcpSocket.size(); i++){
             mTcpSocket[i]->write(QString("make_move").toUtf8() + '\n');
         }
@@ -56,8 +56,8 @@ void MyTcpServer::slotServerRead(){
     {
         req.append(socket->readLine());
     }
-    if (req.size() > 0 && req.back == 'n'){
-        QStringList reqs;
+    if (req.size() > 0 && req.back() == '\n'){
+        QList reqs;
         if (req.contains('\r'))
             reqs = req.split("\r\n");
         else
@@ -72,4 +72,23 @@ void MyTcpServer::slotServerRead(){
 void MyTcpServer::slotClientDisconnected(){
     QTcpSocket* socket = (QTcpSocket*)sender();
     socket->close();
+}
+
+void MyTcpServer::los_win_m(int winner){
+    QString res;
+    for (int i = 0; i < 0; i++)
+        if (i == winner){
+            res = "win";
+            mTcpSocket[i].write(res.toUtf8() + '\n');
+        }
+        else{
+            res = "lost";
+            mTcpSocket[i].write(res.toUtf8() + '\n');
+        }
+}
+
+MyTcpServer* MyTcpServer::get_instance(){
+    if (!p_instance)
+        p_instance = new MyTcpServer();
+    return p_instance;
 }
