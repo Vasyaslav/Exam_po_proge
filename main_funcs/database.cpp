@@ -23,9 +23,3 @@ void Database::db_req (QString req){
     QSqlQuery query(this->db);
     query.exec(req);
 }
-
-Database* Database::get_instance(){
-    if (!p_instance)
-        p_instance = new Database();
-    return p_instance;
-}

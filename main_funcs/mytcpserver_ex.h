@@ -12,6 +12,7 @@
 #include <QByteArray>
 #include <Qvector>
 #include "singl.h"
+#include <QList>
 
 class MyTcpServer : public QObject, public Singleton<MyTcpServer>
 {

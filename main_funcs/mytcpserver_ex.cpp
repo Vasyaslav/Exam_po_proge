@@ -34,7 +34,7 @@ void MyTcpServer::slotNewConnection(){
 
 int MyTcpServer::five_logins(){
     if (mTcpSocket.size() == 5){
-        for (int i = 0; i << mTcpSocket.size(); i++){
+        for (int i = 0; i < mTcpSocket.size(); i++){
             mTcpSocket[i]->write(QString("make_move").toUtf8() + '\n');
         }
         return 1;
