@@ -1,0 +1,5 @@
+docker build -t vasyaslav/cont
+docker push
+docker login
+Login
+Pasword
